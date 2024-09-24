@@ -1,0 +1,40 @@
+<form action="/api/users" method="POST" id="add_user">
+    <div class="new_user">
+        <div class="forme-group">
+            <label for="name" class="text-light">Name:</label>
+            <input type="hidden" id="name" value="">
+            <input type="text" name="name" placeholder="Kamal Cer">
+        </div>
+        <div class="forme-group">
+            <label for="email" class="text-light">Email:</label>
+            <input type="text" name="email" placeholder="Kamal_Cer@gmail.com">
+        </div>
+        <div class="forme-group">
+            <label for="gender" class="radio-label">Gender:</label>
+            <div class="radio inline">
+                <input type="radio" id="radio1" name="gender" value="Male">
+                <label for="radio1" class="radio-label">Male</label>
+            </div>
+            <div class="radio inline">
+                <input type="radio" id="radio2" name="gender" value="Female">
+                <label for="radio2" class="radio-label">Female</label>
+            </div>
+        </div>
+
+        <div class="forme-group">
+            <label for="gender" class="radio-label">Status:</label>
+            <div class="radio inline">
+                <input type="radio" id="radio3" name="status" value="Active">
+                <label for="radio3" class="radio-label">Active</label>
+            </div>
+            <div class="radio inline">
+                <input type="radio" id="radio4" name="status" value="Inactive">
+                <label for="radio4" class="radio-label">Inactive</label>
+            </div>
+        </div>
+        <div class="forme-group">
+            <button type="submit" class="btn text-dark update">Save</button>
+        </div>
+    </div>
+    </div>
+</form>
