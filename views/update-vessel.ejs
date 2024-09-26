@@ -1,0 +1,74 @@
+<!-- Include header -->
+<%- include('include/_header') %>
+    <!-- /Include header -->
+
+
+    <!-- Main site -->
+    <main id="site-main">
+        <div class="container">
+            <div class="box-nav d-flex justify-between">
+                <div class="filter">
+                    <a href="/"><i class="fas fa-angle-double-left"></i>All Vessels</a>
+                </div>
+            </div>
+            <div class="form-title text-center">
+                <h2 class="text-dark">Update Vessel</h2>
+                <span class="text-light">Use the below to update a vessel</span>
+
+            </div>
+            <!-- Update-vessel form handling -->
+            <form method="POST" id="update_vessel">
+                <div class="new_vessel">
+                    <div class="forme-group">
+                        <label for="name" class="text-light">Name:</label>
+                        <input type="hidden" name="id" value="<%=vessel._id %>">
+
+                        <input type="text" name="name" value="<%=vessel.name %>" placeholder="">
+                    </div>
+                    <div class="forme-group">
+                        <label for="nationality" class="text-light">Nationality:</label>
+                        <input type="text" name="nationality" value="<%=vessel.nationality %>" placeholder="">
+                    </div>
+                    <div class="forme-group">
+                        <label for="reg_port" class="text-light">Reg_Port:</label>
+                        <input type="text" name="reg_port" value="<%=vessel.reg_port %>" placeholder="">
+                    </div>
+                    <div class="forme-group">
+                        <label for="imo" class="text-light">Imo :</label>
+                        <input type="number" name="imo" value="<%=vessel.imo %>" placeholder="">
+                    </div>
+                    <div class="forme-group">
+                        <label for="cargo" class="text-light">Cargo :</label>
+                        <input type="text" name="cargo" value="<%=vessel.cargo %>" placeholder="">
+                    </div>
+                    <div class="forme-group">
+                        <label for="client" class="text-light">Client :</label>
+                        <input type="text" name="client" value="<%=vessel.client %>" placeholder="">
+                    </div>
+                    <div class="forme-group">
+                        <label for="arrival" class="text-light">Arrival Date:</label>
+                        <input type="date" name="arrival" value="<%=vessel.arrival %>" placeholder="">
+                    </div>
+                    <div class="forme-group">
+                        <label for="departure" class="text-light">Departure Date:</label>
+                        <input type="date" name="departure" value="<%=vessel.departure %>" placeholder="">
+                    </div>
+
+                    <div class="forme-group">
+                        <button type="submit" class="btn text-dark update">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+    </main>
+    <!-- /Main site -->
+
+
+
+
+
+    <!-- Include footer -->
+    <%- include('./include/_footer') %>
+        <!-- /Include footer -->

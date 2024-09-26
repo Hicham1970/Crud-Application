@@ -1,30 +1,30 @@
 const axios = require("axios");
 
 exports.homeRoutes = (req, res) => {
-  // Make a get request to the api/users
+  // Make a get request to the api/vessels
   axios
-    .get("http://localhost:3000/api/users")
+    .get("http://localhost:3000/api/vessels")
     .then(function (response) {
       // console.log(response.data);
-      res.render("index", { users: response.data });
+      res.render("index", { vessels: response.data });
     })
     .catch(function (error) {
       console.error(error);
-      res.render("index", { users: "New Data" });
+      res.render("index", { vessels: "New Data" });
     });
 };
-
-exports.addUser = (req, res) => {
-  res.render("add-user");
+2;
+exports.addVessel = (req, res) => {
+  res.render("add-vessel", { vessel: {} });
 };
 
-exports.updateUser = (req, res) => {
+exports.updateVessel = (req, res) => {
   axios
-    .get("http://localhost:3000/api/users", {
+    .get("http://localhost:3000/api/vessels", {
       params: { id: req.query.id },
     })
-    .then(function (userData) {
-      res.render("update-user", { user: userData.data });
+    .then(function (vesselData) {
+      res.render("update-vessel", { vessel: vesselData.data });
     })
     .catch((err) => {
       res.send(err);

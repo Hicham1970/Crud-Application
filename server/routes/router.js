@@ -2,7 +2,7 @@ const express = require("express");
 const route = express.Router();
 
 const services = require("../services/render");
-const userController = require("../controllers/usersController");
+const vesselController = require("../controllers/vesselsController");
 /**
  * @description Root Route
  * @method GET /
@@ -14,18 +14,18 @@ route.get("/", services.homeRoutes);
  * @method GET /add-user
  */
 
-route.get("/add-user", services.addUser);
+route.get("/add-vessel", services.addVessel);
 /**
  * @description update user
  * @method GET / update-user
  */
 
-route.get("/update-user", services.updateUser);
+route.get("/update-vessel", services.updateVessel);
 
 // Api Routes
-route.post("/api/users", userController.create);
-route.get("/api/users", userController.find);
-route.put("/api/users/:id", userController.update);
-route.delete("/api/users/:id", userController.delete);
+route.post("/api/vessels", vesselController.create);
+route.get("/api/vessels", vesselController.find);
+route.put("/api/vessels/:id", vesselController.update);
+route.delete("/api/vessels/:id", vesselController.delete);
 
 module.exports = route;

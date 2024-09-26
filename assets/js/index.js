@@ -1,10 +1,9 @@
-$("#add_user").submit(function (event) {
+$("#add_vessel").submit(function (event) {
   alert("Données insérées avec succès");
-  // Ici, vous pouvez ajouter le code pour envoyer les données au serveur
 });
 
 // Pour la mise a jour
-$("#update_user").submit(function (event) {
+$("#update_vessel").submit(function (event) {
   event.preventDefault();
 
   let unindexed_array = $(this).serializeArray();
@@ -21,7 +20,7 @@ $("#update_user").submit(function (event) {
   console.log("Données formatées:", data);
 
   let request = {
-    url: `http://localhost:3000/api/users/${data.id}`,
+    url: `http://localhost:3000/api/vessels/${data.id}`,
     method: "PUT",
     data: data,
   };
@@ -43,10 +42,10 @@ if (window.location.pathname == "/") {
     let id = $(this).attr("data-id");
 
     let request = {
-      url: `http://localhost:3000/api/users/${id}`,
+      url: `http://localhost:3000/api/vessels/${id}`,
       method: "DELETE",
     };
-    if (confirm("Do you really want to delete this record ?")) {
+    if (confirm("Do you really want to delete this ship ?")) {
       $.ajax(request).done(function (response) {
         alert("Données supprimées avec succès !");
         window.location.href = "/";

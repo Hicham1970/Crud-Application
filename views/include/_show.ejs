@@ -1,26 +1,38 @@
-<% for(var i=0; i<users.length; i++) { %>
+<% for(var i=0; i<vessels.length; i++) { %>
 
     <tr>
         <td>
             <%=i + 1 %>
         </td>
         <td>
-            <%=users[i].name %>
+            <%=vessels[i].name %>
         </td>
         <td>
-            <%=users[i].email %>
+            <%=vessels[i].nationality %>
         </td>
         <td>
-            <%=users[i].gender %>
+            <%=vessels[i].reg_port %>
         </td>
         <td>
-            <%=users[i].status %>
+            <%=vessels[i].imo %>
         </td>
         <td>
-            <a href="/update-user?id=<%=users[i]._id %>" class="btn btn-shadow update">
+            <%=vessels[i].cargo %>
+        </td>
+        <td>
+            <%=vessels[i].client %>
+        </td>
+        <td>
+            <%=vessels[i].arrival %>
+        </td>
+        <td>
+            <%=vessels[i].departure %>
+        </td>
+        <td>
+            <a href="/update-vessel?id=<%=vessels[i]._id %>" class="btn btn-shadow update">
                 <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
             </a>
-            <a class="btn btn-shadow delete" data-id=<%=users[i]._id %>>
+            <a class="btn btn-shadow delete" data-id=<%=vessels[i]._id %>>
                 <span class="text-gradient"><i class="fas fa-times"></i></span>
             </a>
         </td>

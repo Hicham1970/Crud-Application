@@ -1,25 +1,44 @@
 const mongoose = require("mongoose");
 
-const userSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
+const vesselSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+    },
+    nationality: {
+      type: String,
+      required: true,
+    },
+    reg_port: {
+      type: String,
+      required: true,
+    },
+    imo: {
+      type: Number,
+      required: true,
+      unique: true,
+    },
+    cargo: {
+      type: String,
+      required: true,
+    },
+    client: {
+      type: String,
+      required: true,
+    },
+    arrival: {
+      type: Date,
+      required: true,
+    },
+    departure: {
+      type: Date,
+      required: true,
+    },
   },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  gender: {
-    type: String,
-    required: true,
-  },
-  status: {
-    type: String,
-    required: true,
-  },
-});
+  { timestamps: true }
+);
 
-const UserDb = mongoose.model("userdb", userSchema);
+const VesselDb = mongoose.model("vesseldb", vesselSchema);
 
-module.exports = UserDb;
+module.exports = VesselDb;

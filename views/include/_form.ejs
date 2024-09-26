@@ -1,37 +1,40 @@
-<form action="/api/users" method="POST" id="add_user">
-    <div class="new_user">
+<form action="/api/vessels" method="POST" id="add_vessel">
+    <div class="new_vessel">
         <div class="forme-group">
             <label for="name" class="text-light">Name:</label>
-            <input type="hidden" id="name" value="">
-            <input type="text" name="name" placeholder="Kamal Cer">
+            <input type="hidden" name="id" value="<%=vessel._id %>">
+
+            <input type="text" name="name" value="<%=vessel.name %>" placeholder="">
         </div>
         <div class="forme-group">
-            <label for="email" class="text-light">Email:</label>
-            <input type="text" name="email" placeholder="Kamal_Cer@gmail.com">
+            <label for="nationality" class="text-light">Nationality:</label>
+            <input type="text" name="nationality" value="<%=vessel.nationality %>" placeholder="">
         </div>
         <div class="forme-group">
-            <label for="gender" class="radio-label">Gender:</label>
-            <div class="radio inline">
-                <input type="radio" id="radio1" name="gender" value="Male">
-                <label for="radio1" class="radio-label">Male</label>
-            </div>
-            <div class="radio inline">
-                <input type="radio" id="radio2" name="gender" value="Female">
-                <label for="radio2" class="radio-label">Female</label>
-            </div>
+            <label for="reg_port" class="text-light">Reg_Port:</label>
+            <input type="text" name="reg_port" value="<%=vessel.reg_port %>" placeholder="">
+        </div>
+        <div class="forme-group">
+            <label for="imo" class="text-light">Imo :</label>
+            <input type="number" name="imo" value="<%=vessel.imo %>" placeholder="">
+        </div>
+        <div class="forme-group">
+            <label for="cargo" class="text-light">Cargo :</label>
+            <input type="text" name="cargo" value="<%=vessel.cargo %>" placeholder="">
+        </div>
+        <div class="forme-group">
+            <label for="client" class="text-light">Client :</label>
+            <input type="text" name="client" value="<%=vessel.client %>" placeholder="">
+        </div>
+        <div class="forme-group" id="arrival">
+            <label for="arrival" class="text-light">Arrival Date:</label>
+            <input type="date" name="arrival" value="<%=vessel.arrival %>" placeholder="">
+        </div>
+        <div class="forme-group" id="depart">
+            <label for="departure" class="text-light">Departure Date:</label>
+            <input type="date" name="departure" value="<%=vessel.departure %>" placeholder="">
         </div>
 
-        <div class="forme-group">
-            <label for="gender" class="radio-label">Status:</label>
-            <div class="radio inline">
-                <input type="radio" id="radio3" name="status" value="Active">
-                <label for="radio3" class="radio-label">Active</label>
-            </div>
-            <div class="radio inline">
-                <input type="radio" id="radio4" name="status" value="Inactive">
-                <label for="radio4" class="radio-label">Inactive</label>
-            </div>
-        </div>
         <div class="forme-group">
             <button type="submit" class="btn text-dark update">Save</button>
         </div>

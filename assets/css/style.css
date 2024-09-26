@@ -2,7 +2,7 @@
 
 :root {
   --dark: #2b2d42;
-  --light: #adb5bd;
+  --light: #54057b;
   --border: #dee2eb;
   --border-btn: #edf2f4;
 }
@@ -11,6 +11,23 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+body {
+  background-image: url("/img/ship.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5); /* Blanc semi-transparent */
+  z-index: -1;
 }
 
 a {
@@ -131,17 +148,21 @@ table {
 .form-title > h2 {
   padding: 0.5em 0;
 }
-.new_user {
+.new_vessel {
   max-width: 786px;
   margin: auto;
 }
-#update_user .forme-group,
-#add_user .forme-group {
+#update_vessel .forme-group,
+#add_vessel .forme-group {
   margin: 0.4em 0;
 }
 
-#update_user .forme-group input[type="text"],
-#add_user .forme-group input[type="text"] {
+#update_vessel .forme-group input[type="text"],
+#update_vessel .forme-group input[type="number"],
+#update_vessel .forme-group input[type="date"],
+#add_vessel .forme-group input[type="text"],
+#add_vessel .forme-group input[type="number"],
+#add_vessel .forme-group input[type="date"] {
   width: 100%;
   padding: 0.6em 1em;
   margin: 0.5em 0;
@@ -151,48 +172,8 @@ table {
   border-radius: 0.2em;
 }
 
-#update_user .forme-group .radio,
-#add_user .forme-group .radio {
-  margin: 1em 2em;
-}
-/* adding style to radio buttons*/
-.radio input[type="radio"] {
-  position: absolute;
-  opacity: 0;
-}
-.radio input[type="radio"] + .radio-label:before {
-  content: "";
-  background: var(--border-btn);
-  border: 1px solid var(--border);
-  border-radius: 100%;
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  position: relative;
-  top: -0em;
-  margin-right: 0.5em;
-  vertical-align: top;
-  cursor: pointer;
-  text-align: center;
-  -webkit-transition: all 250ms ease;
-  transition: all 250ms ease;
-}
-.radio input[type="radio"]:checked + .radio-label:before {
-  background-color: #16db93;
-  box-shadow: inset 0 0 0 4px #e9ecef;
-}
-.radio input[type="radio"]:focus + .radio-label:before {
-  outline: none;
-  border-color: #16db93;
-}
-.radio input[type="radio"]:disabled + .radio-label:before {
-  box-shadow: inset 0 0 0 4px #e9ecef;
-  border-color: #b4b4b4;
-  background: #b4b4b4;
-}
-
-#update_user .forme-group .btn,
-#add_user .forme-group .btn {
+#update_vessel .forme-group .btn,
+#add_vessel .forme-group .btn {
   width: 100%;
   padding: 0.9em 1em;
   background-color: #16db93;
@@ -203,8 +184,13 @@ table {
   border-radius: 0.2em;
   margin: 0.5em 0;
 }
-#update_user .forme-group .btn:hover,
-#add_user .forme-group .btn:hover {
+#update_vessel .forme-group .btn:hover,
+#add_vessel .forme-group .btn:hover {
   background-color: var(--dark);
   color: var(--border);
+}
+
+#arrival,
+#depart {
+  padding-top: 10px;
 }

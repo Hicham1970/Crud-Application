@@ -1,4 +1,4 @@
-const UserDb = require("../models/model");
+const VesselDb = require("../models/model");
 
 //Create and Save a new user
 exports.create = (req, res) => {
@@ -8,18 +8,22 @@ exports.create = (req, res) => {
     return;
   }
   //New user
-  const user = new UserDb({
+  const vessel = new VesselDb({
     name: req.body.name,
-    email: req.body.email,
-    gender: req.body.gender,
-    status: req.body.status,
+    nationality: req.body.nationality,
+    reg_port: req.body.reg_port,
+    imo: req.body.imo,
+    cargo: req.body.cargo,
+    client: req.body.client,
+    arrival: req.body.arrival,
+    departure: req.body.departure,
   });
-  // Save user in the database
-  user
-    .save(user)
+  // Save vessel in the database
+  vessel
+    .save(vessel)
     .then((data) => {
       // res.send(data);
-      res.redirect("/add-user");
+      res.redirect("/add-vessel");
     })
     .catch((err) => {
       res.status(500).send({
@@ -30,36 +34,35 @@ exports.create = (req, res) => {
     });
 };
 
-//retrieve and return all users / retrieve and return a single user
+//retrieve and return all vessels / retrieve and return a single vessel
 exports.find = (req, res) => {
   if (req.query.id) {
     const id = req.query.id;
-    UserDb.findById(id)
+    VesselDb.findById(id)
       .then((data) => {
         if (!data) {
           res
             .status(404)
-            .send({ message: "Utilisateur non trouvé avec l'id " + id });
+            .send({ message: "Navire non trouvé avec l'id " + id });
         } else {
           res.send(data);
         }
       })
       .catch((err) => {
         res.status(500).send({
-          message:
-            "Erreur lors de la récupération de l'utilisateur avec l'id " + id,
+          message: "Erreur lors de la récupération du navire avec l'id " + id,
         });
       });
   } else {
-    UserDb.find()
-      .then((users) => {
-        res.send(users);
+    VesselDb.find()
+      .then((vessels) => {
+        res.send(vessels);
       })
       .catch((err) => {
         res.status(500).send({
           message:
             err.message ||
-            "Une erreur s'est produite lors de la récupération des informations des utilisateurs",
+            "Une erreur s'est produite lors de la récupération des informations des navires",
         });
       });
   }
@@ -70,12 +73,12 @@ exports.update = (req, res) => {
   if (!req.body) {
     return res.status(400).send({ message: "Content can not be empty!" });
   }
-  const userId = req.params.id;
-  UserDb.findByIdAndUpdate(userId, req.body)
+  const vesselId = req.params.id;
+  VesselDb.findByIdAndUpdate(vesselId, req.body)
     .then((data) => {
       if (!data) {
         res.status(404).send({
-          message: `Cannot update user with ${userId}.Maybe user not found`,
+          message: `Cannot update the vessel with ${vesselId}.Maybe vessel not found`,
         });
       } else {
         res.send(data);
@@ -84,26 +87,26 @@ exports.update = (req, res) => {
     .catch((err) => {
       res
         .status(500)
-        .send({ message: err.message || "Error Update users informations" });
+        .send({ message: err.message || "Error Update vessels informations" });
     });
 };
 
-// Delete a user with specified user id in the request
+// Delete a ship with specified vessel id in the request
 exports.delete = (req, res) => {
   const id = req.params.id;
-  UserDb.findByIdAndDelete(id)
+  VesselDb.findByIdAndDelete(id)
     .then((data) => {
       if (!data) {
         res
           .status(404)
           .send({ message: `Cannot delete with id ${id}, maybe id is wrong` });
       } else {
-        res.send({ message: "User was deleted successfully!" });
+        res.send({ message: "Vessel was deleted successfully!" });
       }
     })
     .catch((err) => {
       res.status(500).send({
-        message: `Could not delete User with id ${id}`,
+        message: `Could not delete the Ship with id ${id}`,
       });
     });
 };
